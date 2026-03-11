@@ -3,9 +3,12 @@ import css from "./Section.module.css";
 // import css from "@/components/Section/Section.module.css"; 
 
 
-function Section({ title, children }) {
+function Section({ isOn, title, children }) {
   return (
+    <>
+    {isOn && 
     <section>
+      
       {title
         &&
         <h2
@@ -15,13 +18,16 @@ function Section({ title, children }) {
           {title}
         </h2>} 
       {children}
-    </section>
+    </section>}
+    </>
   );
 }
 
 Section.propTypes = {
+  isOn: PropTypes.bool,
   title: PropTypes.string,
   children: PropTypes.node,
 };
+
 
 export default Section;
